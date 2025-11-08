@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product Search & Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛍️ E-Commerce Product Search & Recommendation</h1>
+            <p class="subtitle">Fast search using Hash Tables, Binary Search, and Advanced Sorting</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search by product name or ID..." />
+                <button id="searchBtn">Search</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+        </div>
+
+        <div class="controls-section">
+            <div class="sort-controls">
+                <label for="sortBy">Sort By:</label>
+                <select id="sortBy">
+                    <option value="id">ID</option>
+                    <option value="name">Name</option>
+                    <option value="price" selected>Price</option>
+                    <option value="rating">Rating</option>
+                    <option value="popularity">Popularity</option>
+                </select>
+
+                <label for="sortOrder">Order:</label>
+                <select id="sortOrder">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+
+                <label for="algorithm">Algorithm:</label>
+                <select id="algorithm">
+                    <option value="merge" selected>Merge Sort (Stable)</option>
+                    <option value="quick">Quick Sort (Fast)</option>
+                </select>
+
+                <button id="applySortBtn">Apply Sort</button>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <span class="stat-label">Total Products:</span>
+                <span class="stat-value" id="totalProducts">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Results:</span>
+                <span class="stat-value" id="resultCount">0</span>
+            </div>
+        </div>
+
+        <div class="recommendations-section" id="recommendationsSection">
+            <h2>🔥 Trending Products</h2>
+            <div id="trendingProducts" class="products-grid"></div>
+        </div>
+
+        <div class="products-section">
+            <h2 id="productsSectionTitle">All Products</h2>
+            <div id="loading" class="loading hidden">Loading...</div>
+            <div id="error" class="error hidden"></div>
+            <div id="productsGrid" class="products-grid"></div>
+        </div>
+
+        <!-- Product Details Modal -->
+        <div id="productDetailsModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeProductDetails()">&times;</span>
+                <div id="productDetailsContent"></div>
+                <div class="recommendations-section" id="productDetailsRecommendations">
+                    <h2>💡 Recommended Products</h2>
+                    <div id="productDetailsRecommendationsGrid" class="products-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+
+
